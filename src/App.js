@@ -1,32 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.scss';
-import Form from './components/form';
+import Form from './components/Form';
 
 function App() {
-  let loading = useState(true);
-
-  let getAge = name => {
-    var data = null;
-
-    var xhr = new XMLHttpRequest();
-    //xhr.withCredentials = true;
-
-    xhr.addEventListener('readystatechange', function() {
-      if (this.readyState === this.DONE) {
-        console.log(this.responseText);
-      }
-    });
-
-    xhr.open('GET', `https://api.agify.io?name=${name}`);
-
-    xhr.send(data);
-  };
-
-  useEffect(() => {}, []);
   return (
-    <>
+    <div className='wrapper text-center'>
+      <h1 className='display-3'>Age Predictor</h1>
+      <p className='lead'>
+        A simple application that predicts the age of a person based on their
+        first name using an external API
+      </p>
+
       <Form />
-    </>
+    </div>
   );
 }
 
