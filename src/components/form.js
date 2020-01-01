@@ -1,56 +1,59 @@
-import React, { useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import { InformationContext } from '../contexts/InformationContext';
+import axios from 'axios';
 import '../styles/form.scss';
 
 const Form = () => {
-  let [details, setDetails] = useState({ name: '', age: '', count: '' });
-  let [name, setName] = useState('hello');
-  let changeName = event => {
-    setName(event.target.value);
-  };
-  let getDetails = () => {
-    let xhr = new XMLHttpRequest();
-    //xhr.withCredentials = true;
+  let [, setInfo, , setShowInfo] = useContext(InformationContext);
 
-    xhr.onload = function() {
-      if (this.status === 200) {
-        let response = JSON.parse(this.responseText);
-        setDetails({
-          name: response.name,
-          age: response.age,
-          count: response.count
+  let inputRef = useRef();
+  let getInput = () => inputRef.current.value;
+
+  let onSubmit = () => {
+    if (getInput() !== '') {
+      setShowInfo(true);
+
+      let ageData;
+      let genderData;
+      let nationData;
+      axios
+        .get(`https://api.agify.io?name=${getInput()}`)
+        .then(res => {
+          ageData = {
+            name: res.data.name,
+            age: res.data.age,
+            ageCount: res.data.count
+          };
+          return axios.get(`https://api.genderize.io?name=${getInput()}`);
+        })
+        .then(res => {
+          genderData = {
+            gender: res.data.gender,
+            genderProbability: res.data.probability,
+            genderCount: res.data.count
+          };
+          return axios.get(`https://api.nationalize.io?name=${getInput()}`);
+        })
+        .then(res => {
+          nationData = {
+            // array of objects {country_id: " " probability: " "}
+            country: res.data.country
+          };
+          setInfo({ ...ageData, ...genderData, ...nationData });
         });
-        console.log(this.getResponseHeader('X-Rate-Limit-Remaining'));
-      }
-    };
-
-    /*
-    xhr.addEventListener('readystatechange', function() {
-      if (this.readyState === this.DONE) {
-      }
-    });
-    */
-
-    xhr.open('GET', `https://api.agify.io?name=${name}`);
-
-    xhr.send();
+    }
   };
+
   return (
-    <Container fluid={true} className='text-center'>
+    <Container fluid={true} className='text-center' id='form_wrapper'>
       <Row>
         <Col xs={12}>
           <h4 className='text-danger'>Enter First Name:</h4>
-          <input onChange={changeName} className='p-1 mb-2'></input>
+          <input ref={inputRef} className='p-1 mb-2'></input>
         </Col>
         <Col xs={12}>
-          <Button onClick={getDetails}>See Age</Button>
-        </Col>
-        <hr className='seperator m-3'></hr>
-        <Col xs={12}>
-          <h3 className='text-success display-4'>Results</h3>
-          <h5>Name: {details.name}</h5>
-          <h5>Age: {details.age}</h5>
-          <h5>Occurances: {details.count}</h5>
+          <Button onClick={onSubmit}>See Information</Button>
         </Col>
       </Row>
     </Container>
