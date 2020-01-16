@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/nameIdentifier/static/css/main.85292f3f.chunk.css",
-    "main.js": "/nameIdentifier/static/js/main.212672e9.chunk.js",
-    "main.js.map": "/nameIdentifier/static/js/main.212672e9.chunk.js.map",
-    "runtime-main.js": "/nameIdentifier/static/js/runtime-main.83b2c922.js",
-    "runtime-main.js.map": "/nameIdentifier/static/js/runtime-main.83b2c922.js.map",
-    "static/js/2.08d4a1ac.chunk.js": "/nameIdentifier/static/js/2.08d4a1ac.chunk.js",
-    "static/js/2.08d4a1ac.chunk.js.map": "/nameIdentifier/static/js/2.08d4a1ac.chunk.js.map",
-    "index.html": "/nameIdentifier/index.html",
-    "precache-manifest.48d6d4e4fc1eaeb67024afcf803fae80.js": "/nameIdentifier/precache-manifest.48d6d4e4fc1eaeb67024afcf803fae80.js",
-    "service-worker.js": "/nameIdentifier/service-worker.js",
-    "static/css/main.85292f3f.chunk.css.map": "/nameIdentifier/static/css/main.85292f3f.chunk.css.map",
-    "static/js/2.08d4a1ac.chunk.js.LICENSE": "/nameIdentifier/static/js/2.08d4a1ac.chunk.js.LICENSE"
+    "main.css": "/name-analyzer/static/css/main.85292f3f.chunk.css",
+    "main.js": "/name-analyzer/static/js/main.96ce2b8d.chunk.js",
+    "main.js.map": "/name-analyzer/static/js/main.96ce2b8d.chunk.js.map",
+    "runtime-main.js": "/name-analyzer/static/js/runtime-main.5568d972.js",
+    "runtime-main.js.map": "/name-analyzer/static/js/runtime-main.5568d972.js.map",
+    "static/js/2.08d4a1ac.chunk.js": "/name-analyzer/static/js/2.08d4a1ac.chunk.js",
+    "static/js/2.08d4a1ac.chunk.js.map": "/name-analyzer/static/js/2.08d4a1ac.chunk.js.map",
+    "index.html": "/name-analyzer/index.html",
+    "precache-manifest.94e6eda6c4cdf934494a659724ce4d77.js": "/name-analyzer/precache-manifest.94e6eda6c4cdf934494a659724ce4d77.js",
+    "service-worker.js": "/name-analyzer/service-worker.js",
+    "static/css/main.85292f3f.chunk.css.map": "/name-analyzer/static/css/main.85292f3f.chunk.css.map",
+    "static/js/2.08d4a1ac.chunk.js.LICENSE": "/name-analyzer/static/js/2.08d4a1ac.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.83b2c922.js",
+    "static/js/runtime-main.5568d972.js",
     "static/js/2.08d4a1ac.chunk.js",
     "static/css/main.85292f3f.chunk.css",
-    "static/js/main.212672e9.chunk.js"
+    "static/js/main.96ce2b8d.chunk.js"
   ]
 }
